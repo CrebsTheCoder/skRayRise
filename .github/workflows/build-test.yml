@@ -19,6 +19,12 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
 
+      - name: Update Gradle Wrapper
+        run: |
+          chmod +x gradlew
+          ./gradlew wrapper --gradle-version 8.3
+          git diff 
+
       - name: Cache Gradle packages
         uses: actions/cache@v2
         with:
